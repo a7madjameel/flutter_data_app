@@ -2,7 +2,6 @@ import 'package:database/database/controllers/products_db_controller.dart';
 import 'package:database/models/product.dart';
 import 'package:database/models/response_process.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sqflite/sqflite.dart';
 
 class ProductProvider extends ChangeNotifier {
   List<Product> products = <Product>[];

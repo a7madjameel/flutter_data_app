@@ -37,9 +37,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
               onPressed: () {
                 // Navigator.pushNamed(context, '/product_screen');
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ProductScreen()));
+                    MaterialPageRoute(builder: (context) => const ProductScreen()));
               },
-              icon: Icon(Icons.add)),
+              icon: const Icon(Icons.add)),
           IconButton(
               onPressed: () {
                 _confirmLogoutDialog();
@@ -110,7 +110,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           onPressed: () {
             Navigator.pushNamed(context, '/cart_screen');
           },
-          child: Icon(Icons.shopping_cart_rounded)),
+          child: const Icon(Icons.shopping_cart_rounded)),
     );
   }
 
@@ -153,7 +153,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           await SharedPerfController().removeValueFor(PerfKeys.loggedIn.name);
       // bool clean = await SharedPerfController().clean();
       if (remove) {
-        Navigator.pushReplacementNamed(context, '/login_screen');
+        Navigator.pushReplacementNamed(context,'/login_screen');
         // print(remove);
       }
     }

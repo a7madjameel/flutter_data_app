@@ -3,7 +3,6 @@ import 'package:database/provider/cart_provider.dart';
 import 'package:database/provider/language_provider.dart';
 import 'package:database/provider/product_provider.dart';
 import 'package:database/screen/app/products/cart_screen.dart';
-import 'package:database/screen/app/products/product_screen.dart';
 import 'package:database/screen/app/products/products_screen.dart';
 import 'package:database/screen/auth/login_screen.dart';
 import 'package:database/screen/auth/register_screen.dart';
@@ -54,6 +53,8 @@ class MyApp extends StatelessWidget {
                 Locale('en'),
                 Locale('ar'),
               ],
+              //localizationsDelegates: AppLocalizations.localizationsDelegates,
+              //supportedLocales: AppLocalizations.supportedLocales,
               locale: Locale(Provider
                   .of<LanguageProvider>(context)
                   .language),
@@ -74,13 +75,11 @@ class MyApp extends StatelessWidget {
                 '/login_screen': (context) => const LoginScreen(),
                 '/register_screen': (context) => const RegisterScreen(),
                 '/products_screen': (context) => const ProductsScreen(),
-                // '/product_screen': (context) => const ProductScreen(),
                 '/cart_screen': (context) => const CartScreen(),
-
-
               },
             );
-          },);
+          },
+        );
       },
     );
   }

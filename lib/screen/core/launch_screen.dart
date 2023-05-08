@@ -14,7 +14,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed( Duration(seconds: 3), () {
+    Future.delayed( const Duration(seconds: 3), () {
     bool result =  SharedPerfController().getValue<bool>(PerfKeys.loggedIn.name)?? false ;
       String route =
          result? '/products_screen' : '/login_screen';

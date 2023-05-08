@@ -139,7 +139,7 @@ class _CartScreenState extends State<CartScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Row(
@@ -150,7 +150,7 @@ class _CartScreenState extends State<CartScreen> {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.sp),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 value.quantity.toString(),
                                 style: GoogleFonts.cairo(

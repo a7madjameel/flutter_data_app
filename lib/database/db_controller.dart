@@ -14,7 +14,8 @@ class DbController {
   factory DbController() {
     return _instance ??= DbController._();
   }
-  Database get database => _database ;
+
+  Database get database => _database;
 
   Future<void> initDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
