@@ -1,5 +1,7 @@
 import 'package:database/pref/shared_pref.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LaunchScreen extends StatefulWidget {
@@ -14,10 +16,11 @@ class _LaunchScreenState extends State<LaunchScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed( const Duration(seconds: 3), () {
-    bool result =  SharedPerfController().getValue<bool>(PerfKeys.loggedIn.name)?? false ;
-      String route =
-         result? '/products_screen' : '/login_screen';
+    Future.delayed(const Duration(seconds: 3), () {
+      bool result =
+          SharedPerfController().getValue<bool>(PerfKeys.loggedIn.name) ??
+              false;
+      String route = result ? '/products_screen' : '/onboarding_screen';
       Navigator.pushReplacementNamed(context, route);
     });
   }
@@ -25,21 +28,23 @@ class _LaunchScreenState extends State<LaunchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        alignment: AlignmentDirectional.center,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: AlignmentDirectional.topStart,
-                end: AlignmentDirectional.bottomEnd,
-                colors: [
-              Colors.pink.shade200,
-              Colors.blue.shade200,
-            ])),
-        child: Text('Data App',
-            style: GoogleFonts.poppins(
-                fontSize: 20,
-                color: Colors.white,
-                fontWeight: FontWeight.bold)),
+      backgroundColor: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            'images/splash.png',
+          ),
+          SizedBox(height: 10.h),
+          Text(
+            AppLocalizations.of(context)!.cart,
+            style: GoogleFonts.montserrat(
+              fontSize: 30.sp,
+              fontWeight: FontWeight.bold,
+              color: const Color(0XFF0097B2),
+            ),
+          ),
+        ],
       ),
     );
   }

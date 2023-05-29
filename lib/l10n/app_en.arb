@@ -1,4 +1,11 @@
 {
+  "cart": "My Cart",
+  "skip": "skip",
+  "welcome": "Welcome!",
+  "add": "Add to cart",
+  "enjoy": "Enjoy Purchase!",
+  "sub_title": "Through our application you can manage your purchases by controlling your card",
+  "enjoy_now": "Enjoy now",
   "login_title": "Welcome back..",
   "login_subtitle": "Enter email & password",
   "email": "Email",
@@ -20,8 +27,10 @@
   "product_create": "Create Product",
   "product_update": "Update Product",
   "info": "info",
-  "price":"price",
+  "price": "price",
   "quantity": "quantity",
   "save": "Save",
-  "error_data" : "Enter required Data"
+  "error_data": "Enter required Data",
+  "error_fill_data": "Enter all the fields above",
+  "empty_data": "No Product to view"
 }

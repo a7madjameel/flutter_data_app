@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import '../../../pref/shared_pref.dart';
 
 class ProductScreen extends StatefulWidget {
@@ -59,8 +60,8 @@ class _ProductScreenState extends State<ProductScreen> with Helpers {
           children: [
             Text(
               title,
-              style:
-                  GoogleFonts.cairo(fontSize: 22, fontWeight: FontWeight.bold),
+              style: GoogleFonts.cairo(
+                  fontSize: 22.sp, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 20.h,

@@ -1,16 +1,13 @@
 import 'package:database/database/controllers/user_db_controller.dart';
 import 'package:database/models/response_process.dart';
 import 'package:database/models/user.dart';
-import 'package:database/pref/shared_pref.dart';
 import 'package:database/utils/extension.dart';
 import 'package:database/utils/helper.dart';
 import 'package:database/widget/app_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
-import '../../provider/language_provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -53,7 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -65,33 +62,29 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(AppLocalizations.of(context)!.register_subtitle,
-                style: GoogleFonts.cairo(
-                    fontSize: 18.sp,
-                    color: Colors.black38,
-                    height: 1,
-                    fontWeight: FontWeight.bold)),
-            const SizedBox(
-              height: 20,
+            Text(
+              AppLocalizations.of(context)!.register_subtitle,
+              style: GoogleFonts.cairo(
+                  fontSize: 18.sp,
+                  color: Colors.black38,
+                  height: 1.h,
+                  fontWeight: FontWeight.bold),
             ),
+            SizedBox(height: 20.h),
             AppTextField(
               textInputType: TextInputType.name,
               hintText: AppLocalizations.of(context)!.name,
               prefixIcon: Icons.person,
               controller: _nameEditingController,
             ),
-            const SizedBox(
-              height: 15,
-            ),
+            SizedBox(height: 15.h),
             AppTextField(
               textInputType: TextInputType.emailAddress,
               hintText: AppLocalizations.of(context)!.email,
               prefixIcon: Icons.email,
               controller: _emailEditingController,
             ),
-            const SizedBox(
-              height: 15,
-            ),
+            SizedBox(height: 15.h),
             AppTextField(
               textInputType: TextInputType.text,
               hintText: AppLocalizations.of(context)!.password,
@@ -99,13 +92,14 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
               obscure: _obscureText,
               controller: _passwordEditingController,
               suffixIcon: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _obscureText = !_obscureText;
-                    });
-                  },
-                  icon: Icon(
-                      _obscureText ? Icons.visibility : Icons.visibility_off)),
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+                icon: Icon(
+                    _obscureText ? Icons.visibility : Icons.visibility_off),
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -115,12 +109,14 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
                 _performRegister();
               },
               style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 44),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
+                minimumSize: const Size(double.infinity, 44),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+              ),
               child: Text(
                 AppLocalizations.of(context)!.register,
-                style: GoogleFonts.cairo(fontSize: 16),
+                style: GoogleFonts.cairo(fontSize: 16.sp),
               ),
             ),
           ],
@@ -140,7 +136,9 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
         _passwordEditingController.text.isNotEmpty) {
       return true;
     }
-    showSnackBar(context, message: 'Enter required Data', error: true);
+
+    showSnackBar(context,
+        message: AppLocalizations.of(context)!.error_fill_data, error: true);
     return false;
   }
 

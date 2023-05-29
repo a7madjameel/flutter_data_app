@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/user.dart';
 
-enum PerfKeys { langCode,name, email, loggedIn ,id}
+enum PerfKeys { langCode, name, email, loggedIn, id }
 
 class SharedPerfController {
   SharedPerfController._();

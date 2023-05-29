@@ -16,7 +16,7 @@ class CartProvider extends ChangeNotifier {
       int newRowsId = await _dbController.create(cart);
       if (newRowsId != 0) {
         total += cart.total;
-        quantity+= 1 ;
+        quantity += 1;
         cart.id = newRowsId;
 
         cartItems.add(cart);
@@ -33,7 +33,7 @@ class CartProvider extends ChangeNotifier {
     cartItems = await _dbController.read();
     for (Cart cart in cartItems) {
       total += cart.total;
-      quantity+= 1;
+      quantity += 1;
     }
     notifyListeners();
   }
@@ -43,7 +43,7 @@ class CartProvider extends ChangeNotifier {
     if (cleared) {
       cartItems.clear();
       total = 0;
-      quantity =0;
+      quantity = 0;
       notifyListeners();
     }
     return getResponse(cleared);
@@ -59,13 +59,13 @@ class CartProvider extends ChangeNotifier {
     if (result) {
       if (isDeleted) {
         total -= cart.total;
-        quantity -= 1 ;
+        quantity -= 1;
         cartItems.removeAt(index);
       } else {
         cart.count = count;
         cart.total = cart.count * cart.price;
         total += cart.total;
-        quantity += 1 ;
+        quantity += 1;
         cartItems[index] = cart;
       }
       notifyListeners();

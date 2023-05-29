@@ -1,6 +1,7 @@
 import 'package:database/database/db_controller.dart';
 import 'package:database/models/response_process.dart';
 import 'package:sqflite/sqflite.dart';
+
 import '../../models/user.dart';
 import '../../pref/shared_pref.dart';
 
@@ -34,8 +35,8 @@ class UserDbController {
   }
 
   Future<bool> _isExistEmail({required String email}) async {
-    List<Map<String, dynamic>> rowsMap =
-        await _database.rawQuery('SELECT * FROM users WHERE email = ?', [email]);
+    List<Map<String, dynamic>> rowsMap = await _database
+        .rawQuery('SELECT * FROM users WHERE email = ?', [email]);
     return rowsMap.isEmpty;
   }
 }

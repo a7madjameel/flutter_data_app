@@ -8,6 +8,7 @@ import 'package:database/screen/app/products/product_screen.dart';
 import 'package:database/utils/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -36,8 +37,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
           IconButton(
               onPressed: () {
                 // Navigator.pushNamed(context, '/product_screen');
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ProductScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProductScreen()));
               },
               icon: const Icon(Icons.add)),
           IconButton(
@@ -97,10 +100,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
               },
             );
           } else {
-            return const Center(
+            return Center(
               child: Text(
-                'NO Data',
-                style: TextStyle(fontSize: 22),
+                AppLocalizations.of(context)!.empty_data,
+                style: TextStyle(fontSize: 22.sp),
               ),
             );
           }
@@ -122,11 +125,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
           return AlertDialog(
             title: Text(
               AppLocalizations.of(context)!.logout_alter_sure,
-              style: GoogleFonts.cairo(fontSize: 16, color: Colors.black),
+              style: GoogleFonts.cairo(fontSize: 16.sp, color: Colors.black),
             ),
             content: Text(
               AppLocalizations.of(context)!.logout_alter,
-              style: GoogleFonts.cairo(fontSize: 14, color: Colors.black54),
+              style: GoogleFonts.cairo(fontSize: 14.sp, color: Colors.black54),
             ),
             actions: [
               TextButton(
@@ -153,7 +156,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           await SharedPerfController().removeValueFor(PerfKeys.loggedIn.name);
       // bool clean = await SharedPerfController().clean();
       if (remove) {
-        Navigator.pushReplacementNamed(context,'/login_screen');
+        Navigator.pushReplacementNamed(context, '/login_screen');
         // print(remove);
       }
     }
@@ -165,7 +168,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
     cart.count = 1;
     cart.price = product.price;
     cart.total = product.price * 1;
-    cart.productName = product.name ;
+    cart.productName = product.name;
     cart.userId = SharedPerfController().getValue<int>(PerfKeys.id.name)!;
     return cart;
   }

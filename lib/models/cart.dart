@@ -5,7 +5,8 @@ class Cart {
   late double price;
   late int userId;
   late int productId;
-  late String productName ;
+  late String productName;
+
   static const String tableName = 'carts';
 
   Cart();

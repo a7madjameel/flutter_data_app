@@ -37,15 +37,9 @@ class ProductsDbController extends DbOperation<Product> {
     int userId = SharedPerfController().getValue<int>(PerfKeys.id.name)!;
 
     int updatedRowId = await database.rawUpdate(
-        'UPDATE products SET name = ? ,info = ? ,price = ? ,quantity = ? WHERE id =? AND user_id = ? ',
-        [
-          model.name,
-          model.info,
-          model.price,
-          model.quantity,
-          model.id,
-          userId
-        ]);
+      'UPDATE products SET name = ? ,info = ? ,price = ? ,quantity = ? WHERE id =? AND user_id = ? ',
+      [model.name, model.info, model.price, model.quantity, model.id, userId],
+    );
     return updatedRowId != 0;
   }
 }

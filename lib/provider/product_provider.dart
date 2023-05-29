@@ -22,10 +22,9 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
-  Future<ProcessResponses> delete(int index)async{
-    bool deleted = await  _dbController.delete(products[index].id);
-    if(deleted){
+  Future<ProcessResponses> delete(int index) async {
+    bool deleted = await _dbController.delete(products[index].id);
+    if (deleted) {
       products.removeAt(index);
       notifyListeners();
     }
@@ -44,10 +43,9 @@ class ProductProvider extends ChangeNotifier {
     return getResponse(updated);
   }
 
-ProcessResponses getResponse(bool success) {
-  return ProcessResponses(
-      message: success ? 'Operation is Successfully' : 'Operation failed',
-      success: success);
+  ProcessResponses getResponse(bool success) {
+    return ProcessResponses(
+        message: success ? 'Operation done successfully' : 'Operation failed',
+        success: success);
+  }
 }
-}
-
